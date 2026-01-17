@@ -253,7 +253,7 @@ public class Hyprland : Object {
                 .get_object().get_member("id").get_int());
 
         focused_client = get_client(Json.from_string(message("j/activewindow"))
-                .get_object().get_member("address").get_string());
+                .get_object().get_member("address")?.get_string() ?? "");
     }
 
     ~Hyprland() {
